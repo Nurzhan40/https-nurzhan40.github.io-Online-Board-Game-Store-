@@ -1,0 +1,449 @@
+  <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Магазин настольных игр</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            
+            background-color: #333;
+            color: white;
+            padding: 10px 0;
+            box-shadow: #555;
+        }
+        nav {
+            background-color: #ffffff;
+        }
+
+        .nan {
+            background-color: #949297;
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+        }
+
+        nav a {
+            color: white;
+            margin: 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+        .main-content {
+            display: flex;
+            justify-content: space-between;
+            padding: 70px;
+        }
+        .product-list {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            width: 70%;
+        }
+        .product-item {
+            background-color: white;
+            padding: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .product-item img {
+            width: 80%;
+            height: auto;
+        }
+        .product-item h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+        .product-item p {
+            font-size: 16px;
+            color: #555;
+        }
+        .product-item .price {
+            font-size: 20px;
+            font-weight: bold;
+            color: #b93e39;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            
+            padding: 10px;
+            font-family: 'Times New Roman', Times, serif;
+            bottom: 0;
+            width: 100;
+        }
+        .nom {
+            font-family: Times New Roman;
+            text-align: left;
+        color: #ffffff;
+        text-decoration: none;
+        font-size: 200%;
+        }
+
+        input {
+    width: 300px;
+    height: 65px;
+    border-radius: 42px;
+    border: 1px solid #c4c4c4;
+    outline: none;
+    position: relative;
+    transition: 3s linear;
+    background-color: #f7fdbc88;
+    box-shadow: 0px 0px 15px rgba(250, 176, 17, 0.527);
+    margin: 0 10px;
+    font-size: 30px;
+    }
+
+    .cart-button {
+            margin-top: 10px;
+            padding: 10px;
+            font-size: 25px;
+            cursor: pointer;
+            color: #ffffff;
+            background-color: #e79e00;
+        }
+        .cart-counter {
+            font-size: 40px;
+            margin-top: 20px;
+        }
+
+        .erre {
+            width: 10%;
+        }
+
+        .tex {
+            font-family: Times New Roman;
+            text-align: left;
+        color: #000000;
+        text-decoration: none;
+        font-size: 200%; 
+        }
+
+        .container333 {
+            
+                position: relative;
+                width: 500%;
+                max-width: 20%; 
+            }
+            .image {
+                width: 500%;
+                height: auto;
+            }
+            .text232 {
+                position: absolute;
+            top: 50%;
+            left: 250%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            text-align: center;
+            background-color: rgb(251, 252, 190); 
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 10px rgba(255, 221, 149, 0.87);
+            border-radius: 40px;
+            padding: 20px;
+            line-height: 1.6; 
+            width: 170%; 
+            max-width: 250%; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            .text23 {
+                position: absolute;
+            top: 90%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: rgb(0, 0, 0);
+            font-size: 18px;
+            text-align: center;
+            background-color: rgba(251, 252, 190, 0.822); 
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 15px rgba(250, 176, 17, 0.527);
+            border-radius: 40px;
+            padding: 20px;
+            line-height: 1.6; 
+            width: 20%; 
+            max-width: 250%; 
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            }
+
+            a {
+        text-decoration: none;
+        color: #000000;
+        font-weight: bold;
+    }
+
+    select {
+          font-size: 16px; 
+          padding: 10px;   
+          border-radius: 5px; 
+          border: 2px solid #dba634; 
+          box-shadow: 0px 0px 15px rgba(252, 188, 51, 0.171);
+          background-color: #c3f0fc75; 
+        }
+    
+        option {
+          padding: 10px; 
+        }
+
+        .uyt {
+           
+            scroll-snap-type: mandatory;
+        }
+
+        .uyy {
+            background-color: #474747;
+            
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #d11919;
+            font-size: 500%;
+            scrollbar-color: 23;
+        }
+
+        .uyw {
+            background-color: #474747;
+            font-family: 'Times New Roman', Times, serif;
+            color: #d11919;
+            font-size: 500%;
+            scrollbar-color: 23;
+            shadow: 0px 0px 30px rgb(255, 255, 255);
+        }
+
+        .gfh {
+            position: absolute;
+            top: 487%;
+            left: 70%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #ffd51b;
+            font-size: 250%;
+            scrollbar-color: 23;
+        }
+
+        .gh {
+            position: absolute;
+            top: 495%;
+            left: 70%;
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            color: #ffffff;
+            font-size: 180%;
+            scrollbar-color: 23;
+        }
+
+        .aad {
+            position: absolute;
+            top: 530%;
+            left: 70%;
+        }
+    </style>
+    <script>
+        
+        let cartCount = 0;
+
+        
+        function addToCart() {
+            cartCount++; 
+            document.getElementById("cart-count").textContent = cartCount; 
+        }
+    </script>
+</head>
+<body>
+    <header>
+        <h1>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<b>ZikZak</b>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <a><img src="trans_bg.png" width="6%" height="10%"></a>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            &nbsp
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            
+            <select id="fruits" name="fruits">
+                <option value="apple">Мәзір</option>
+                <option value="banana">Мекен-жайы: Бауыржан Момышулы 24/1</option>
+                <option value="orange">Телефон: +774-7770-6858</option>
+                <option value="pear">Номер: 64-58-78</option>
+              </select> 
+              <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Korrrr.html"><img src="Group 13 (2).png"></a></h1>    
+    </header>
+    <nav>
+        <br>
+        <form>
+            <div class="cart-counter">
+                &nbsp&nbsp&nbsp&nbsp
+               <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Korrrr.html">
+                <img src="1413925.png" width="60px" height="60px"></a>
+               Себеттегі тауарлар: <span id="cart-count">0</span> 
+               &nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <b><input type="search"name="p"placeholder="&nbsp&nbsp&nbspІздеу" ></b><img src="search-512.webp" width="40px" height="40px"></a>
+            </div></form> <br><br>
+           </nav>
+    <div class="container333">
+    <img src="image 3.png" class="image">
+        <div class="text232"><p><b><h3>Онлайн үстел ойындары дүкеніне қош келдіңіз!<BR>
+        
+            </h3></b></P> </div></div>
+            <br><br><br>
+                
+                    <div class="text23"> <a href="file:///C:/Users/admin/SAa.html">Тіркеу</a></div>
+    <nav><br><Div class="tex"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspСату хиттері<br><br></nav><div class="main-content">
+        <div class="product-item">
+            <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Magy%20CCCORO.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<img src="Magy coro.png" alt="Игра 4" ></a>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <h3>Мачи коро</h3>
+            <p>Classic 4</p>
+            <p class="price">15,000 KZ  ₸</p>
+            <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+        </div>
+        <div class="product-item">
+            <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/KKARRRKAs.HTML">
+                <br><br><img src="RFFFFFFF.png" alt="Игра 5"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a><br><br><br>
+            <h3>Каркассон</h3>
+            <p>Dusseldorf 4</p>
+            <p class="price">13,000 KZ  ₸</p>
+            <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+        </div>
+        <div class="product-item">
+            <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/JEEENGGA.html"><br><br><img src="aqws.png" alt="Игра 6"></a></a><br><br><br>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <h3>Дженга</h3>
+            <p>Kids game 3</p>
+            <p class="price">8,000 KZ  ₸</p>
+            <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+        </div>
+        </div>
+        <nav><br><Div class="tex"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspМоториканы дамытатын ойындар <br><br></nav><div class="main-content">
+            <div class="product-item">
+                <A href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Vkladkaaaa.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <img src="snapedit_1738575478219.jpeg" alt="Игра 8"></a></A>
+                &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                <h3>Шахматы</h3>
+                <p>3-те 1 20*39см ойындар</p>
+                <p class="price">4,000 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+            </div>
+            <div class="product-item">
+                <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Domain.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <br><br><br><br><img src="snapedit_1738575252829.jpeg" alt="Игра 9"></a></a><br><br><br><br><br>
+                <h3>Домино</h3>
+                <p> 44х20см</p>
+                <p class="price">4,500 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+            </div>
+            <div class="product-item">
+                <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/IQ%20ELEMENT.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <img src="image (5) (1).png" alt="Игра 10"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                <h3>IQ - элемент</h3>
+                <p>магниттік басқатырғыш</p>
+                <p class="price">1,500 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        <nav><br><Div class="tex"><br>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbspҮстел ойындары<br><br></nav><div class="main-content">
+            <div class="product-item">
+                <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/GOOBBITT.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <img src="Gobbit-1000x416-wm.jpg" alt="Игра 8"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a>
+                <h3>Гоббит</h3>
+                <p>BFG TIME 6</p>
+                <p class="price">12,000 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+            </div>
+            <div class="product-item">
+                <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/MONOPOLIA.html">&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+                    <br><br><br><br><img src="Monopoly_Bonusy-1000x416-wm.jpg" alt="Игра 9"></a></a><br><br><br><br>
+                <h3>Монополия: Шекарасыз бонустар</h3>
+                <p>TRANSFORM 5</p>
+                <p class="price">16,500 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+                
+            </div>
+            <div class="product-item">
+                <a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/CLLLLUEEEDODODo.HTML">
+                    <br><br><img src="Cluedo_Pautina_Lji-1000x416-wm.jpg" alt="Игра 10"></a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</a><br><br><br>
+                <h3>CLUEDO</h3>
+                <p>өлтірушіні ұстаңыз</p>
+                <p class="price">24,000 KZ ₸</p>
+                <button class="cart-button" onclick="addToCart()">Себетке салу</button>
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+<br>
+<br><br><br>
+<div class="uyt">
+<div class="uyy"><marquee behavior="scroll" direction="left" scrollamount="20" >Сыйлық сертификаттары</marquee></div>
+<div class="uyt">
+    <a><img src="RRRRR.jpg" width="30%" height="20%" alt="Игра 11"></a>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a><img src="Seee.jpg" width="30%" height="20%" alt="Игра 11"></a>
+&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<a><img src="FFiKAT.jpg" width="30%" height="20%" alt="Игра 11"></a>
+</div>
+
+<div class="uyw"><center><b>Кез келген сомаға</b></center></div>
+    <footer><P ALIGN="LEFT">
+        <br><p><h1>&nbsp&nbsp&nbsp&nbsp&nbspБіз үстел ойындары тек <br>      
+            &nbsp&nbsp&nbsp&nbsp&nbspойын-сауық қана емес,<br>
+            &nbsp&nbsp&nbsp&nbsp&nbspсонымен бірге жақындарымызбен<br>
+            &nbsp&nbsp&nbsp&nbsp&nbspуақыт өткізудің, <br>
+            &nbsp&nbsp&nbsp&nbsp&nbspлогиканы дамытудың ерекше <br>
+            &nbsp&nbsp&nbsp&nbsp&nbspмүмкіндігі деп санаймыз.<br>
+            &nbsp&nbsp&nbsp&nbsp&nbspстратегиялық ойлау шығармашылық.<br>
+            &nbsp&nbsp&nbsp&nbsp&nbspБіздің мақсатымыз 
+                <br>&nbsp&nbsp&nbsp&nbsp&nbsp-қуаныш әкелетін және 
+                <br>&nbsp&nbsp&nbsp&nbsp&nbspжаңа әлемдерді 
+                <br>&nbsp&nbsp&nbsp&nbsp&nbspашатын ойынды 
+                <br>&nbsp&nbsp&nbsp&nbsp&nbspтабуға көмектесу.</h1></p>
+<br><br> <br><br><br> <br><br><br> <br><Center>© 2025 Онлайн магазин настольных игр. Все права защищены.</Center>
+</p></p></footer></div>
+<div class="gfh">Байланыс</div>    
+
+<div class="gh">Мекен-жайы: Бауыржан Момышулы 24/1<br><br>
+
+    Телефон: +7-747-777-6858<br><br>
+    
+    Номер: 64-58-78<br><br>
+    
+    E-Mail: ZikZak@gmail.com</div>    
+
+    <div class="aad">
+        <a href="https://vk.com/?ysclid=m56gbfbome117767384"><img src="Group 14 (1).png" width="15%" height="7%" alt="Игра 11"></a></a>
+
+        <a href="https://x.com/login?lang=ru"><img src="Group 16.png" width="11%" height="7%" alt="Игра 11"></a></a>
+
+        <a href="https://softisntall.ru/ru/land/whatsapp/?utm_source=direct&utm_medium=cpc&utm_campaign=whatsapp-cis&utm_content=116814592&utm_term=---autotargeting&yclid=4932021262143717375">
+        <img src="Group 17.png" width="12%" height="7%" alt="Игра 11"></a></a>
+
+        <a href="https://web.telegram.org/k/"><img src="Group 18.png" width="12%" height="7%" alt="Игра 11"></a>
+
+            <a href="https://ru-ru.facebook.com/"><img src="Group 15.png" width="14%" height="7%" alt="Игра 11"></a></a>
+
+                <a href="https://www.youtube.com/"><img src="Group 19.png" width="12%" height="7%" alt="Игра 11"></a></a>
+
+                    <a href="https://www.instagram.com/"><img src="Group 20.png" width="11%" height="7%" alt="Игра 11"></a></a></div>
+</body>
+</html>

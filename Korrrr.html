@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Үстел ойындары интернет-дүкені</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      background-color: #fff8dc; 
+    }
+
+    h1 {
+      text-align: center;
+      color: #d4a017; 
+    }
+
+    #product-list, #cart {
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+      background-color: #fffbe0; 
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #product-list ul, #cart ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    #product-list li, #cart li {
+      margin: 10px 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    button {
+      padding: 8px 15px;
+      background-color: #ffc107; 
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background-color: #e0a800; 
+    }
+
+    .remove-button {
+      background-color: #ff5722; 
+    }
+
+    .remove-button:hover {
+      background-color: #e64a19;
+    }
+
+    #total {
+      font-weight: bold;
+      font-size: 18px;
+      text-align: right;
+      color: #d4a017;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Үстел ойындары интернет-дүкені</h1>
+
+  <div id="product-list">
+    <h2>Қолжетімді ойындар</h2>
+    <ul>
+      <li>
+        <span>Мачи коро Classic 4’ (104x58см) - <b>15,000 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Футбол ойыны Classic 4’ (104x58см)" data-price="59000">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Каркассон - <b>13,000 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Домино" data-price="13000">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Дженга Kids game 3 - <b>8,000 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Аэрохоккей BFG ICE TIME 6" data-price="8000">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Шахматы 3-те 1 20*39см ойындар- <b>4,000 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Аэрохоккей BFG ICE TRANSFORM 5" data-price="4000">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Домино 44х20см - <b>4,500 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Аэрохоккей ICE PLANET 4’ (120x58см)" data-price="4500">Себетке қосу</button>
+      </li>
+      <li>
+        <span>IQ - элемент магниттік басқатырғыш - <b>1,500 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Шахмат, ойындар 3 в 1 (20x39см)" data-price="1500">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Гоббит BFG TIME 6 - <b>12,000 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Тоғызқұмалақ 44х20см" data-price="12000">Себетке қосу</button>
+      </li>
+      <li>
+        <span>Теңіз шайқасы ICE TRANSFORM 5 - <b>16,500 KZ ₸</b></span>
+        <button class="add-to-cart" data-product="Шахмат, ойындар 3 в 1 (20x39см)" data-price="16500">Себетке қосу</button>
+      </li>
+      <li>
+        <li>
+            <span>CLUEDO өлтірушіні ұстаңыз - <b>23,000 KZ ₸</b></span>
+            <button class="add-to-cart" data-product="Шахмат, ойындар 3 в 1 (20x39см)" data-price="23000">Себетке қосу</button>
+          </li>
+          <li>
+    </ul>
+  </div>
+
+  <div id="cart">
+    <h2>Сіздің себетіңіз</h2>
+    <ul id="cart-items"></ul>
+    <p id="total">Жалпы: 0 KZ ₸</p>
+  </div>
+  <center><button id="buy-button"><a href="file:///C:/Users/admin/Desktop/%D1%84%D0%BE%D1%82%D0%BE%20%D1%81%20%D1%80%D0%B0%D0%B1%20%D1%81%D1%82%D0%BE%D0%BB%D0%B0/Oformlenye%20zakaza.html" style="text-decoration: none; color: #3a632d;"><b>Сатып алу</b></a></button></center>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const addToCartButtons = document.querySelectorAll('.add-to-cart');
+      const cartItemsList = document.getElementById('cart-items');
+      const totalElement = document.getElementById('total');
+      const buyButton = document.getElementById('buy-button');
+      let cart = [];
+
+      function updateCart() {
+        cartItemsList.innerHTML = '';
+        let total = 0;
+
+        cart.forEach((item, index) => {
+          const li = document.createElement('li');
+          li.textContent = `${item.product} - ${item.price} KZ ₸`;
+
+          const removeButton = document.createElement('button');
+          removeButton.textContent = 'Өшіру';
+          removeButton.classList.add('remove-button');
+          removeButton.addEventListener('click', function () {
+            cart.splice(index, 1); 
+            updateCart();
+          });
+
+          li.appendChild(removeButton);
+          cartItemsList.appendChild(li);
+          total += item.price;
+        });
+
+        totalElement.textContent = `Жалпы: ${total} KZ ₸`;
+      }
+
+      addToCartButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const product = button.getAttribute('data-product');
+          const price = Number(button.getAttribute('data-price')); 
+          cart.push({ product, price });
+          updateCart();
+        });
+      });
+
+      buyButton.addEventListener('click', function () {
+        alert('Сатып алу жүзеге асырылды!'); 
+      });
+    });
+  </script>
+
+</body>
+</html>
